@@ -1,56 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from 'react'
+import { Switch, Route, useLocation, Link } from 'react-router-dom'
+import { Counter } from './features/counter/Counter'
+import './App.css'
+
+import GlobalLayout from '@layouts/GlobalLayout/GlobalLayout'
+import AuthLayout from '@layouts/AuthLayout/AuthLayout'
+import AdminLayout from '@layouts/AdminLayout/AdminLayout'
+
+import Auth from './pages/Auth/Auth'
+import Main from './pages/Main/Main'
 
 function App() {
+  const Page = (
+    <Route path='/' exact component={Main}/>
+  )
+
+  const Layout = (
+    <Route path={['login', 'register']} exact component={({children}) => <AuthLayout>{children}</AuthLayout>}/>
+  )
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <GlobalLayout>
+        <Link to="/">GO TO ADMIN</Link>
+        <Link to="/posts">GO TO POSTS</Link>
+        <Link to="/login">GO TO LOGIN</Link>
+
+        <Layout>123321</Layout>
+      </GlobalLayout>
     </div>
   );
 }

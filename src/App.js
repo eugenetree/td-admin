@@ -3,31 +3,31 @@ import { Switch, Route, useLocation, Link } from 'react-router-dom'
 import { Counter } from './features/counter/Counter'
 import './App.css'
 
-import GlobalLayout from '@layouts/GlobalLayout/GlobalLayout'
-import AuthLayout from '@layouts/AuthLayout/AuthLayout'
-import AdminLayout from '@layouts/AdminLayout/AdminLayout'
+import LayoutGlobal from '@layouts/LayoutGlobal'
+import LayoutAuth from '@layouts/LayoutAuth'
+import LayoutAdmin from '@layouts/LayoutAdmin'
 
-import Auth from './pages/Auth/Auth'
-import Main from './pages/Main/Main'
+import Auth from '@pages/Auth'
+import Admin from '@pages/Main'
 
 function App() {
-  const Page = (
-    <Route path='/' exact component={Main}/>
-  )
-
-  const Layout = (
-    <Route path={['login', 'register']} exact component={({children}) => <AuthLayout>{children}</AuthLayout>}/>
-  )
-
   return (
-    <div className="App">
-      <GlobalLayout>
-        <Link to="/">GO TO ADMIN</Link>
-        <Link to="/posts">GO TO POSTS</Link>
-        <Link to="/login">GO TO LOGIN</Link>
+    <div className="app">
+      <LayoutGlobal>
+        <Switch>
+          <Route path={['/login']} exact>
+            <LayoutAuth>
+              <Route path="/login" exact component={Auth} />
+            </LayoutAuth>
+          </Route>
 
-        <Layout>123321</Layout>
-      </GlobalLayout>
+          <Route>
+            <LayoutAdmin>
+              <Admin/>
+            </LayoutAdmin>
+          </Route>
+        </Switch>
+      </LayoutGlobal>
     </div>
   );
 }

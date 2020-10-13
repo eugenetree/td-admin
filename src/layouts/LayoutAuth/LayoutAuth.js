@@ -1,10 +1,12 @@
 import React from 'react';
+import './LayoutAuth.scss'
 
-export default function AuthLayout({children}) {
+const LayoutAuth = ({children}) => {
   return (
     <div className="layout-auth">
-      <h6>auth layout</h6>
       {children}
     </div>
   )
 }
+
+export default LayoutAuth

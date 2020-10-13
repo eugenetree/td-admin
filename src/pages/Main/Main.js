@@ -1,7 +1,10 @@
 import React from 'react';
+import LayoutAdmin from '../../layouts/LayoutAdmin/LayoutAdmin'
 
-export default function Main() {
+const Main = () => {
   return (
     <main className="main"></main>
   )
 }
+
+export default Main

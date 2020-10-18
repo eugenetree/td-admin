@@ -1,5 +1,4 @@
 import React from 'react';
-import './LayoutGlobal.scss'
 
 const LayoutGlobal = ({children}) => {
   return (

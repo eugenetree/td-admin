@@ -13,16 +13,9 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 
 import styled from 'styled-components'
 
-const $Test = styled.div`
-  font-size: 200px;
-  ${({test}) => test}
-`
-
-
 function App() {
   return (
     <div className="app">
-      <$Test test={{fontSize: '20px', color: }}>ewqe</$Test>
       <StylesProvider injectFirst>
         <CssBaseline/>
         <LayoutGlobal>

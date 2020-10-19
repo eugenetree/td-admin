@@ -5,22 +5,46 @@ import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
 
-const StyledButton = styled(Button)`
-  background-color: #6772e5;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  padding: 7px 14px;
-  &:hover {
-    background-color: #5469d4;
-  }
-`;
+import { useForm } from "react-hook-form";
 
 const AuthLogin = () => {
+  const { handleSubmit, register, errors } = useForm()
+  const onSubmit = values => console.log(values)
+  
   return (
-    <form className="auth-form" noValidate autoComplete="off">
-      <StyledButton>Customized</StyledButton>
-      <TextField label="Email" variant="outlined" />
-      <TextField label="Password" variant="outlined" />
+    <form 
+      className="auth-form"
+      onSubmit={handleSubmit(onSubmit)}
+      noValidate
+    >
+      <TextField 
+        onSubmit={onSubmit}
+        className="auth-form__item" 
+        value="123"
+        label="Password" 
+        variant="outlined" 
+        name="email"
+        inputRef={register({
+          required: "Required",
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: "invalid email address"
+          }
+        })}
+      />
+      <TextField 
+        className="auth-form__item" 
+        label="Password" 
+        variant="outlined" 
+      />
+      <Button
+        size="large" 
+        variant="outlined" 
+        color="primary" 
+        type="submit"
+      >
+        login
+      </Button>
     </form>
   )
 }

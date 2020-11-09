@@ -1,17 +1,17 @@
-import auth from '@/js/api/actions/auth/auth'
+import auth from '@api/actions/auth/auth'
 
-import portfolio from '@/js/api/actions/portfolio/portfolio'
-import portfolioFilter from '@/js/api/actions/portfolio/portfolio-filter'
-import portfolioTechnology from '@/js/api/actions/portfolio/portfolio-technology'
+import portfolio from '@api/actions/portfolio/portfolio'
+import portfolioFilter from '@api/actions/portfolio/portfolio-filter'
+import portfolioTechnology from '@api/actions/portfolio/portfolio-technology'
 
-import posts from "@/js/api/actions/posts/posts"
-import postsFilter from "@/js/api/actions/posts/posts-filter"
-import postsCategories from "@/js/api/actions/posts/posts-categories"
-import postsTags from "@/js/api/actions/posts/posts-tags"
+import posts from "@api/actions/posts/posts"
+import postsFilter from "@api/actions/posts/posts-filter"
+import postsCategories from "@api/actions/posts/posts-categories"
+import postsTags from "@api/actions/posts/posts-tags"
 
-import reviews from "@/js/api/actions/reviews/reviews";
+import reviews from "@api/actions/reviews/reviews";
 
-import letters from "@/js/api/actions/letters/letters";
+import letters from "@api/actions/letters/letters";
 
 export default {
 	auth,

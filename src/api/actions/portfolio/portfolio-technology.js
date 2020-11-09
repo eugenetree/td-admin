@@ -1,17 +1,17 @@
-import fetchData from '@/js/api/fetchData'
-import routes from '@/js/api/api-routes'
+import fetch from '@api/fetch'
+import routes from '@api/api-routes'
 
 export default {
   getList(page) {
-    return fetchData.get(`${routes.technology}?page=${page}`)
+    return fetch.get(`${routes.technology}?page=${page}`)
   },
 	createItem(data) {
-		return fetchData.post(routes.technology, data)
+		return fetch.post(routes.technology, data)
 	},
 	updateItem({slug, data}) {
-		return fetchData.post(`${routes.technology}/${slug}`, data)
+		return fetch.post(`${routes.technology}/${slug}`, data)
 	},
 	deleteItem(slug) {
-		return fetchData.delete(`${routes.technology}/${slug}`)
+		return fetch.delete(`${routes.technology}/${slug}`)
 	}
 }

@@ -7,6 +7,7 @@ module.exports = override(
     ['@components']: path.resolve(__dirname, 'src/components'),
     ['@pages']: path.resolve(__dirname, 'src/pages'),
     ['@layouts']: path.resolve(__dirname, 'src/layouts'),
-    ['@store']: path.resolve(__dirname, 'src/store')
+    ['@store']: path.resolve(__dirname, 'src/store'),
+    ['@utils']: path.resolve(__dirname, 'src/utils')
   })
 )

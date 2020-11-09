@@ -1,12 +1,12 @@
 import React from 'react'
 
-import AuthLogin from '@components/pages/Auth/AuthLogin'
-import './Auth.scss'
+import Login from '../Login'
+import './AuthLayout.scss'
 
 const Auth = ({ children }) => {
   return (
     <div className="auth">
-      <AuthLogin/>
+      <Login/>
     </div>
   )
 }

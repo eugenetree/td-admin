@@ -1,11 +1,11 @@
-import fetchData from '@/js/api/fetchData'
-import routes from '@/js/api/api-routes'
+import fetch from '@api/fetch'
+import routes from '@api/api-routes'
 
 export default {
 	getList() {
-		return fetchData.get(routes.tags)
+		return fetch.get(routes.tags)
 	},
 	updateItem(data) {
-		return fetchData.post(routes.tags, data)
+		return fetch.post(routes.tags, data)
 	}
 }

@@ -1,14 +1,14 @@
-import fetchData from '@/js/api/fetchData'
-import routes from '@/js/api/api-routes'
+import fetch from '@api/fetch'
+import routes from '@api/api-routes'
 
 export default {
   getList(page) {
-    return fetchData.get(`${routes.letters}?page=${page}`)
+    return fetch.get(`${routes.letters}?page=${page}`)
   },
 	deleteItem(slug) {
-		return fetchData.delete(`${routes.letters}/${slug}`)
+		return fetch.delete(`${routes.letters}/${slug}`)
   },
   getUnreadCount() {
-    return fetchData.get('countOfUnreadLetters')
+    return fetch.get('countOfUnreadLetters')
   }
 }

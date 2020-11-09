@@ -1,8 +1,8 @@
-import fetchData from '@/js/api/fetchData'
-import routes from '@/js/api/api-routes'
+import fetch from '@api/fetch'
+import routes from '@api/api-routes'
 
 export default {
 	getList() {
-		return fetchData.get(routes.postFilter)
+		return fetch.get(routes.postFilter)
 	}
 }

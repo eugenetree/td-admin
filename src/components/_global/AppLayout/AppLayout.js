@@ -8,7 +8,7 @@ const AppLayout = ({children}) => {
   return (
     <div className="app-layout">
       <ToastContainer 
-        position="top-center"
+        position="bottom-right"
         closeOnClick={true}
       />
 

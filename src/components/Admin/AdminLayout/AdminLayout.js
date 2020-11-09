@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
 }))
 
 function AdminLayout({ children }) {
-  console.log(123)
   const classes = useStyles()
 
   const [sidebarIsOpened, setsidebarIsOpened] = useState(false)

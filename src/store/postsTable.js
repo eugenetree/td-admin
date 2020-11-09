@@ -6,11 +6,12 @@ export const postsTableSlice = createSlice({
   name: 'postsTable',
   initialState: {
     posts: [],
-    pagination: null,
+    pagination: {},
     isFetching: false
   },
   reducers: {
     setPosts(state, { payload: posts }) {
+      console.log({posts})
       state.posts = posts
     },
 
@@ -20,18 +21,18 @@ export const postsTableSlice = createSlice({
 
     setIsFetching(state, { payload: isFetching }) {
       state.isFetching = isFetching
+    },
+
+    removePosts(state) {
+      state.posts = []
     }
   }
 })
 
-export const { setPosts, setPagination, setIsFetching } = postsTableSlice.actions;
+export const { setPosts, removePosts, setPagination, setIsFetching } = postsTableSlice.actions;
 
 export const getPosts = page => async dispatch => {
   dispatch(setIsFetching(true))
-
-  await new Promise(resolve => setTimeout(() => {
-    resolve()
-  }, 0))
 
   return api.posts.getList(page)
     .then(({ data: {data} }) => {
@@ -42,24 +43,23 @@ export const getPosts = page => async dispatch => {
       dispatch(setPosts(data.data))
     })
     .finally((what) => {
-      console.log(what)
       dispatch(setIsFetching(false))
     }
   )
 };
 
 export const selectPosts = state => {
-  console.log(state.postsTable.posts)
-  
   return (
-  state.postsTable.posts.map((post, index) => ({
-    index: index+1,
-    img: `${window.location.protocol}//${window.location.hostname}/storage/${post.picture.path}`,
-    title: post.title,
-    show: post.is_show_to_main_page,
-    status: post.status,
-    created: parseDate(post.created_at)
-  }))
+    state.postsTable.posts.map(post => ({
+      id: post.id,
+      img: `${window.location.protocol}//${window.location.hostname}/storage/${post.picture?.path}`,
+      title: post.title,
+      show: post.is_show_to_main_page,
+      status: post.status,
+      created: parseDate(post.created_at),
+      slug: post.slug
+    })
+  )
 )}
 
 export default postsTableSlice.reducer

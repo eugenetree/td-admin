@@ -8,10 +8,12 @@ import AppRouterConfig from '@components/_global/AppRouterConfig'
 import { StylesProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
-import useEffectStore from '@utils/hooks/useEffectStore'
+import useTokenChangeHandle from '@utils/hooks/useTokenChangeHandle'
+import useTokenRefresh from '@utils/hooks/useTokenRefresh'
 
 function App() {
-  useEffectStore()
+  useTokenChangeHandle()
+  useTokenRefresh()
 
   return (
     <div className="app">

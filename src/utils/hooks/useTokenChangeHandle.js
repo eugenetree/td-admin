@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import useToken from '@utils/hooks/useToken'
 
-const useEffectStore = () => {
+const useTokenChangeHandle = () => {
   const token = useToken()
   useEffect(() => {
     if (token) localStorage.setItem('token', token)
@@ -9,4 +9,4 @@ const useEffectStore = () => {
   }, [token])
 }
 
-export default useEffectStore
+export default useTokenChangeHandle

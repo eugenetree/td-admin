@@ -1,6 +1,7 @@
 export default {
 	login: 'login',
 	logout: 'logout',
+	refresh: 'refresh',
   portfolio: 'portfolio',
   portfolioFilters: 'portfolio_filters',
 	technology: 'technology',

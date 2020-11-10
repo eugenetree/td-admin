@@ -7,5 +7,5 @@ export default {
 	},
 	logout() {
 		return fetch.post(routes.logout).catch(err => err)
-	}
+	},
 }

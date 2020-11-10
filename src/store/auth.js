@@ -33,6 +33,9 @@ export const logout = () => dispatch => {
     .then(() => {
       dispatch(removeToken())
     })
+    .catch(err => {
+
+    })
 }
 
 export const selectToken = state => state.auth.token

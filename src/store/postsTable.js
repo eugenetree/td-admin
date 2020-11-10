@@ -42,7 +42,7 @@ export const getPosts = page => async dispatch => {
       }))
       dispatch(setPosts(data.data))
     })
-    .finally((what) => {
+    .finally(() => {
       dispatch(setIsFetching(false))
     }
   )

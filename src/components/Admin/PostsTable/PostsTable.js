@@ -96,8 +96,7 @@ const PostsTable = () => {
 
   useEffect(() => {
     if (posts.length) dispatch(removePosts())
-    dispatch(getPosts(1)).then(res => {
-    })
+    dispatch(getPosts(1))
   }, [])
 
   const handlePagChange = (e, page) => {
